@@ -4,9 +4,75 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FairylandCalculator"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="{DynamicResource AppTitle}" Height="450" Width="400">
+    <Window.Resources>
+        <ResourceDictionary>
+            <system:String x:Key="AppTitle">童話計算機</system:String>
+            <system:String x:Key="labelVersionNumber">1.0.0</system:String>
+            <system:Double x:Key="fontSize">20</system:Double>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Label FontSize="{DynamicResource fontSize}" Content="版本 :"/>
+            <Label FontSize="{DynamicResource fontSize}" Content="{DynamicResource labelVersionNumber}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <StackPanel Orientation="Vertical"  >
+                <Expander Header="寵物紅軟計算機" FontSize="{DynamicResource fontSize}" Width="400" IsExpanded="True">
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" FontSize="{DynamicResource fontSize}" Content="當前等級"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1"/>
+                        <Button  Grid.Row="0" Grid.Column="2" FontSize="{DynamicResource fontSize}" Content="計算"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" FontSize="{DynamicResource fontSize}" Content="目標等級"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1"/>
+                        <Label Grid.Row="2" Grid.Column="0" FontSize="{DynamicResource fontSize}" Content="目標剩餘經驗值(以下)"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1"/>
+                    </Grid>
+                </Expander>
+                <Expander Header="人物玻璃計算機" FontSize="{DynamicResource fontSize}"  Width="400" IsExpanded="True">
+                    <Grid Margin="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" FontSize="{DynamicResource fontSize}" Content="當前等級"/>
+                        <TextBox  Grid.Row="0" Grid.Column="1"/>
+                        <Button  Grid.Row="0" Grid.Column="2" FontSize="{DynamicResource fontSize}" Content="計算"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" FontSize="{DynamicResource fontSize}" Content="目標等級"/>
+                        <TextBox  Grid.Row="1" Grid.Column="1"/>
+
+                        <Label Grid.Row="2" Grid.Column="0" FontSize="{DynamicResource fontSize}" Content="目標剩餘經驗值(以下)"/>
+                        <TextBox  Grid.Row="2" Grid.Column="1"/>
+                    </Grid>
+                </Expander>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
