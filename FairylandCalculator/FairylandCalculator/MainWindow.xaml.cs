@@ -70,6 +70,15 @@ namespace FairylandCalculator
                         levelList.Add(levelVal);
                     }
 
+                    // 若只有一個等級，但需要多次，則自動複製填滿
+                    if (levelList.Count == 1 && countValue > 1)
+                    {
+                        int valueToRepeat = levelList[0];
+                        while (levelList.Count < countValue)
+                        {
+                            levelList.Add(valueToRepeat);
+                        }
+                    }
                     // 儲存結果
                     levelData[i] = new Tuple<int, List<int>>(countValue, levelList);
                 }
@@ -95,6 +104,21 @@ namespace FairylandCalculator
                 MessageBox.Show(string.Format("成長模擬解析錯誤"));
                 return;
             }
+            int nowLevelValue;
+            if (!int.TryParse(textNowLevel.Text, out nowLevelValue))
+            {
+                MessageBox.Show(string.Format("當前等級解析錯誤"));
+                return;
+            }
+            int finalLevelValue;
+            if (!int.TryParse(textFinalLevel.Text, out finalLevelValue))
+            {
+                MessageBox.Show(string.Format("最終等級解析錯誤"));
+                return;
+            }
+            bool isMainValue = true;
+            if (checkSecValue.IsChecked == true)
+                isMainValue = false;
 
             var allEntries = new List<Tuple<int, int>>(); // (level, petLevel)
             // 展平成一筆一筆的序列
@@ -111,14 +135,18 @@ namespace FairylandCalculator
 
             int currentValue = initialPetValue;
             int? lastNextPetLevel = null;
-
+            int display = 0;
             for (int i = 0; i < allEntries.Count; i++)
             {
                 int level = allEntries[i].Item1;
                 int petLevel = allEntries[i].Item2;
 
                 int result;
-                bool success = PetCalculator.PetCalculator_Level(true, level, petLevel, currentValue, out result);
+                if (i == 0 && petLevel > nowLevelValue)
+                {
+                    currentValue = currentValue + (int)((petLevel - nowLevelValue) * addValue);
+                }
+                bool success = PetCalculator.PetCalculator_Level(isMainValue, level, petLevel, currentValue, out result);
 
                 if (!success)
                 {
@@ -144,13 +172,21 @@ namespace FairylandCalculator
 
                 sb.AppendLine(string.Format("第 {0} 次：{1}, 降等等級 = {2}, 降後初始 = {3}, 最終 = {4}",
                     i + 1, PetString.getLevelItemName(level), petLevel,  result, currentValue));
+
+                if (i < allEntries.Count)
+                { 
+                    display = result + (int)((finalLevelValue - 1) * addValue);
+                }
             }
 
 
 
-
-            MessageBox.Show("計算完成：\n\n" + sb.ToString());
-
+            if (checkOnlyFinal.IsChecked == false)
+                MessageBox.Show("計算完成：\n\n" + sb.ToString());
+            else
+            {
+                labelFinalValue.Content = display;
+            }
         }
     }
     class PetCalculator

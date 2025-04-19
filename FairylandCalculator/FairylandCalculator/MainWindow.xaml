@@ -7,35 +7,47 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="{DynamicResource AppTitle}" Height="350" Width="500">
+        Title="{DynamicResource AppTitle}" Height="400" Width="500">
     <Window.Resources>
         <ResourceDictionary>
             <system:String x:Key="AppTitle">童話計算機</system:String>
             <system:String x:Key="labelVersionNumber">1.0.0</system:String>
-            <system:Double x:Key="fontSize">25</system:Double>
+            <system:Double x:Key="fontSize">20</system:Double>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid>
+    <Grid Margin="5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="150"/>
             <RowDefinition/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <Grid Margin="1" Grid.Row="0">
+        <Grid Margin="5" Grid.Row="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Label FontSize="{DynamicResource fontSize}" Grid.Column="0" Content="主要數值"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Column="1"
+            <TextBox  Margin="5" FontSize="{DynamicResource fontSize}" Grid.Column="1"
                       Name="textMainValue"/>
-            
-            <Label FontSize="{DynamicResource fontSize}" Grid.Column="2" Content="模擬成長"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Column="3"
+
+            <Label FontSize="{DynamicResource fontSize}" Grid.Row="0" Grid.Column="2" Content="當前等級"/>
+            <TextBox Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="0" Grid.Column="3"
+                      Name="textNowLevel"/>
+
+            <Label FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="0" Content="最終等級"/>
+            <TextBox  Margin="5" FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="1"
+                      Name="textFinalLevel"/>
+            <Label FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="2" Content="模擬成長"/>
+            <TextBox Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="3"
                       Name="textAddValue"/>
+
         </Grid>
 
         <Grid Margin="1" Grid.Row="1">
@@ -57,48 +69,60 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="1" Content="咖啡"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="2"
+            <TextBox Margin="5"   FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="2"
                       Name="textCount_Level1"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="3"
+            <TextBox  Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="3"
                       Name="textLevel_Level1"/>
 
             <Label FontSize="{DynamicResource fontSize}" Grid.Row="2" Grid.Column="1" Content="汽水"/>
-            <TextBox FontSize="{DynamicResource fontSize}" Grid.Row="2" Grid.Column="2"
+            <TextBox  Margin="5" FontSize="{DynamicResource fontSize}" Grid.Row="2" Grid.Column="2"
                      Name="textCount_Level2"/>
-            <TextBox FontSize="{DynamicResource fontSize}"  Grid.Row="2" Grid.Column="3"
+            <TextBox  Margin="5" FontSize="{DynamicResource fontSize}"  Grid.Row="2" Grid.Column="3"
                      Name="textLevel_Level2"/>
 
             <Label FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="1" Content="可樂"/>
-            <TextBox FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="2"
+            <TextBox  Margin="5" FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="2"
                      Name="textCount_Level3"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="3"
+            <TextBox  Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="3"
                       Name="textLevel_Level3"/>
 
             <Label FontSize="{DynamicResource fontSize}" Grid.Row="4" Grid.Column="1" Content="香檳"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="4" Grid.Column="2"
+            <TextBox  Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="4" Grid.Column="2"
                       Name="textCount_Level4"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="4" Grid.Column="3"
+            <TextBox   Margin="5" FontSize="{DynamicResource fontSize}" Grid.Row="4" Grid.Column="3"
                       Name="textLevel_Level4"/>
 
             <Label FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="4" Content="開水"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="5"
+            <TextBox   Margin="5" FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="5"
                       Name="textCount_Level5"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="6"
+            <TextBox  Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="1" Grid.Column="6"
                       Name="textLevel_Level5"/>
 
             <Label FontSize="{DynamicResource fontSize}" Grid.Row="2" Grid.Column="4" Content="雞精"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="2" Grid.Column="5"
+            <TextBox  Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="2" Grid.Column="5"
                     Name="textCount_Level6"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="2" Grid.Column="6"
+            <TextBox  Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="2" Grid.Column="6"
                       Name="textLevel_Level6"/>
 
             <Label FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="4" Content="蔘湯"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="5"
+            <TextBox  Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="5"
                       Name="textCount_Level7"/>
-            <TextBox  FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="6"
+            <TextBox  Margin="5"  FontSize="{DynamicResource fontSize}" Grid.Row="3" Grid.Column="6"
                       Name="textLevel_Level7"/>
+
+            <StackPanel Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Orientation="Vertical" Margin="2">
+                <CheckBox   Content="只顯示最終結果"
+                      Name="checkOnlyFinal"
+                      IsChecked="True"/>
+                <CheckBox   Content="顯示次要屬性值"
+                      Name="checkSecValue"/>
+            </StackPanel>
         </Grid>
-        <Button FontSize="{DynamicResource fontSize}" Grid.Row="2" Content="計算" Name="btnCalculator"
+        <Label Grid.Row="2" HorizontalAlignment="Center" FontSize="45"
+               Name="labelFinalValue"/>
+        <Button FontSize="{DynamicResource fontSize}" Grid.Row="3" Content="計算" Name="btnCalculator"
                 Click="btnCalculator_Click"/>
     </Grid>
 </Window>
+
+    
