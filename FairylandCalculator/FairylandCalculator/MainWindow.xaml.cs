@@ -178,9 +178,6 @@ namespace FairylandCalculator
                     display = result + (int)((finalLevelValue - 1) * addValue);
                 }
             }
-
-
-
             if (checkOnlyFinal.IsChecked == false)
                 MessageBox.Show("計算完成：\n\n" + sb.ToString());
             else
@@ -205,9 +202,9 @@ namespace FairylandCalculator
                 { 2, Tuple.Create(5.0, 10.0) },
                 { 3, Tuple.Create(4.0, 12.0) },
                 { 4, Tuple.Create(3.0, 14.0) },
-                { 5, Tuple.Create(2.0, 16.0) },
-                { 6, Tuple.Create(1.5, 22.0) },
-                { 7, Tuple.Create(0.75, 32.0) },
+                { 5, Tuple.Create(2.0, 16.0) },             // 開
+                { 6, Tuple.Create(1.5, 22.0) },             // 雞
+                { 7, Tuple.Create(0.75, 32.0) },        // 湯
             };
 
             // 副屬性等級對應資料：Level → extraValue（LevelVal 固定 20）
@@ -229,6 +226,10 @@ namespace FairylandCalculator
 
                 double levelVal = mainLevelMap[Level].Item1;
                 double extraValue = mainLevelMap[Level].Item2;
+
+                if (Level == 5 && levelVal > 92)
+                    levelVal = 92;
+
 
                 if (Level == 7)
                     final = (calTotal * levelVal) + extraValue;
