@@ -7,7 +7,7 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="{DynamicResource AppTitle}" Height="450" Width="500">
+        Title="{DynamicResource AppTitle}" Height="500" Width="500">
     <Window.Resources>
         <ResourceDictionary>
             <system:String x:Key="AppTitle">童話計算機</system:String>
@@ -20,6 +20,7 @@
             <RowDefinition Height="80"/>
             <RowDefinition Height="200"/>
             <RowDefinition/>
+            <RowDefinition Height="60"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <Grid Margin="5" Grid.Row="0">
@@ -62,6 +63,7 @@
                 <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -128,6 +130,8 @@
                Name="labelFinalValue"/>
         <Button FontSize="{DynamicResource fontSize}" Grid.Row="3" Content="計算" Name="btnCalculator"
                 Click="btnCalculator_Click"/>
+        <Button FontSize="{DynamicResource fontSize}" Grid.Row="4" Content="套入標準" Name="btnSetDefault"
+                Click="btnSetDefault_Click"/>
     </Grid>
 </Window>
 

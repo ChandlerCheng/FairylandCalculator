@@ -185,6 +185,23 @@ namespace FairylandCalculator
                 labelFinalValue.Content = display;
             }
         }
+
+        private void btnSetDefault_Click(object sender, RoutedEventArgs e)
+        {
+            textCount_Level1.Text = "1";
+            textCount_Level3.Text = "1";
+            textCount_Level5.Text = "2";
+            textLevel_Level1.Text = "60";
+            textLevel_Level3.Text = "80";
+            textLevel_Level5.Text = "90";
+            if (textMainValue.Text == "")
+            {
+                textMainValue.Text = "2";
+                textNowLevel.Text = "1";
+                textFinalLevel.Text = "1";
+                textAddValue.Text = "3.8";
+            }
+        }
     }
     class PetCalculator
     {
